@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeStrom Hackathon 2024 - Registration</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .college-header {
+            transition: box-shadow 0.5s cubic-bezier(.68,-0.55,.27,1.55),
+                        transform 0.5s cubic-bezier(.68,-0.55,.27,1.55),
+                        background 0.6s cubic-bezier(.68,-0.55,.27,1.55),
+                        color 0.6s cubic-bezier(.68,-0.55,.27,1.55),
+                        opacity 1s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        .college-header:hover {
+            box-shadow: 0 8px 32px rgba(37,99,235,0.18);
+            transform: scale(1.04) rotate(-1deg);
+            background: linear-gradient(90deg, #e0f2fe 0%, #bae6fd 100%);
+        }
+        body, h1, h2, h3, h4, h5, h6, p, a, ul, li, span, .btn, .navbar, .about-card, .countdown, .footer {
+            font-family: 'Inter', Arial, Helvetica, sans-serif;
+        }
+        .countdown {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-top: 18px;
+        }
+        .countdown-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(37,99,235,0.10);
+            padding: 12px 18px;
+            min-width: 70px;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .countdown-value {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #2563eb;
+            margin-bottom: 2px;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .countdown-label {
+            font-size: 1rem;
+            color: #64748b;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 600px) {
+            .hero-container {
+                flex-direction: column;
+                padding: 18px 8px;
+            }
+            .hero-content {
+                text-align: center;
+                padding: 0 8px;
+            }
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            .hero-description {
+                font-size: 1rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                gap: 12px;
+                align-items: center;
+            }
+            .hero-image {
+                margin-top: 18px;
+                text-align: center;
+            }
+            .timer-section .container {
+                padding: 0 4px;
+            }
+            .countdown {
+                gap: 4px;
+                font-size: 1.2rem;
+            }
+            .countdown-block {
+                min-width: 48px;
+                padding: 8px 4px;
+                border-radius: 10px;
+            }
+            .countdown-value {
+                font-size: 1.1rem;
+            }
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+            .about-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+            .about-card {
+                padding: 12px 8px;
+                border-radius: 12px;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 18px;
+            }
+            .footer-section {
+                padding: 8px 0;
+            }
+        }
+        .about-card {
+            background: #f8fafc;
+            color: #222;
+            transition: box-shadow 0.5s cubic-bezier(.68,-0.55,.27,1.55),
+                        transform 0.5s cubic-bezier(.68,-0.55,.27,1.55),
+                        background 0.6s cubic-bezier(.68,-0.55,.27,1.55),
+                        color 0.6s cubic-bezier(.68,-0.55,.27,1.55);
+            cursor: pointer;
+        }
+        .about-card h3 {
+            color: #2563eb;
+        }
+        .about-card p {
+            color: #334155;
+        }
+        .about-card .card-icon {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            border-radius: 50%;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.10);
+        }
+        .about-card .card-icon i {
+            color: #0ea5e9;
+            font-size: 2rem;
+            filter: drop-shadow(0 0 6px #38bdf8);
+            transition: color 0.4s cubic-bezier(.68,-0.55,.27,1.55), filter 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        .about-card:hover {
+            background: linear-gradient(90deg, #e0f2fe 0%, #bae6fd 100%);
+            color: #222;
+            box-shadow: 0 4px 24px rgba(6,182,212,0.18);
+            transform: scale(1.07) rotate(-2deg);
+        }
+        .about-card:hover h3 {
+            color: #0ea5e9;
+        }
+        .about-card:hover p {
+            color: #2563eb;
+        }
+        .about-card:hover .card-icon {
+            background: linear-gradient(135deg, #bae6fd 0%, #e0f2fe 100%);
+        }
+        .about-card:hover .card-icon i {
+            color: #2563eb;
+            filter: drop-shadow(0 0 10px #3b82f6);
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 32px;
+        }
+        .footer-section {
+            flex: 1 1 220px;
+            min-width: 180px;
+        }
+        .footer-section ul {
+            padding-left: 0;
+            list-style: none;
+            margin: 0;
+            text-align: left;
+        }
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+        .footer-section h4 {
+            margin-bottom: 10px;
+            color: #2563eb;
+            font-size: 1.1rem;
+        }
+        @media (max-width: 800px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 18px;
+            }
+            .footer-section {
+                min-width: unset;
+                width: 100%;
+                text-align: center;
+            }
+            .footer-section ul {
+                text-align: center;
+            }
+        }
+        .footer-bottom {
+            text-align: center;
+            padding: 12px 0 0 0;
+            font-size: 1rem;
+            color: #64748b;
+            letter-spacing: 0.5px;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-code"></i>
+                <span>CodeStrom</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#registration" class="nav-link">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+
+
+
+    <!-- College Logo and Name Section -->
+        <div class="college-header" style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 80px 0 32px 0; background: #f8fafc; box-shadow: 0 4px 18px rgba(37,99,235,0.10); border-radius: 24px; padding: 32px 0; opacity:0; transform:scale(0.95); transition:opacity 1s cubic-bezier(.68,-0.55,.27,1.55), transform 1s cubic-bezier(.68,-0.55,.27,1.55);">
+            <img src="https://tungamahavidyalaya.in/wp-content/uploads/2023/02/cropped-TVVS-Logo-3.png" alt="College Logo" style="width:100px;height:100px;border-radius:16px;margin-bottom:18px;background:none;box-shadow:none;">
+                <!-- Changed font to Georgia and color to #1e3a8a for a deeper blue -->
+                <h2 style="margin:0; font-size:2.4rem; color:#1e3a8a; font-weight:800; letter-spacing:2px; text-shadow:0 2px 8px #e0e7ff; font-family: 'Georgia', 'Times New Roman', serif;">Tunga Mahavidyalaya</h2>
+                <h5 style="margin:0; font-size:2.4rem; color:#1e3a8a; font-weight:700; letter-spacing:1px; text-shadow:0 1px 6px #e0e7ff; font-family: 'Georgia', 'Times New Roman', serif;">Thirthahalli</h5>
+        </div>
+
+
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">CodeStrom Hackathon 2024</h1>
+                <p class="hero-subtitle">Innovate. Create. Dominate.</p>
+                <p class="hero-description">
+                    Join the most exciting 12-hour coding challenge where brilliant minds come together 
+                    to build the future. Showcase your skills, learn from experts, and win amazing prizes.
+                </p>
+                <div class="hero-buttons">
+                    <a href="registration.html" target="_blank" class="btn btn-primary btn-attractive">Register Now</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-graphic">
+                    <i class="fas fa-rocket"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timer Section -->
+    <section id="timer" class="timer-section">
+        <div class="container">
+            <div style="text-align:center;margin-bottom:24px;">
+                <span style="font-weight:700;font-size:1.35rem;padding:10px 32px;border-radius:18px;display:inline-block;letter-spacing:1px;color:#2563eb;">Organized by IT Club, Tunga Mahavidyalaya</span>
+            </div>
+            <div class="timer-content">
+                <h2 class="section-title">Countdown to Hackathon</h2>
+                <div id="countdown" class="countdown">
+                    <div class="countdown-block"><span id="days" class="countdown-value">00</span><span class="countdown-label">Days</span></div>
+                    <div class="countdown-block"><span id="hours" class="countdown-value">00</span><span class="countdown-label">Hours</span></div>
+                    <div class="countdown-block"><span id="minutes" class="countdown-value">00</span><span class="countdown-label">Minutes</span></div>
+                    <div class="countdown-block"><span id="seconds" class="countdown-value">00</span><span class="countdown-label">Seconds</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About the Event</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>When & Where</h3>
+                    <p>December 15-17, 2024<br>Tunga Mahavidyalaya<br>Thirthahalli, Karnataka</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Participants</h3>
+                    <p>20 teams<br>60 members<br>12 hours of coding</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Prizes</h3>
+                    <p>Prize Pool: ₹8,000<br>1st Place: ₹5,000<br>2nd Place: ₹2,000<br>3rd Place: ₹1,000</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Themes</h3>
+                    <p><span style="color:#2563eb;font-weight:600;">Solving Real World Problems</span></p>
+                </div>
+            </div>
+            <div class="about-grid" style="margin-top:32px;">
+                <div class="about-card restriction-card">
+                    <div class="card-icon restriction-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="restriction-title">Team & Participation Restrictions</h3>
+                    <ul class="restriction-list">
+                        <li>Only same college students can form a team.</li>
+                        <li>Each team can have a maximum of 4 members.</li>
+                        <li>Participants must bring their own laptop.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container" style="max-width:600px;margin:0 auto;padding:32px 0;">
+            <h2 class="section-title" style="text-align:center;">Contact Us</h2>
+            <div style="background:#f8fafc;border-radius:18px;box-shadow:0 2px 12px rgba(37,99,235,0.10);padding:32px 24px;">
+                <p style="font-size:1.1rem;color:#2563eb;font-weight:600;margin-bottom:18px;text-align:center;">Have questions or need help? Reach out to us!</p>
+                <ul style="list-style:none;padding:0;margin:0;font-size:1.08rem;">
+                    <li style="margin-bottom:12px;"><i class="fas fa-envelope" style="color:#2563eb;margin-right:8px;"></i> Email: <a href="mailto:codestrom@tunga.edu" style="color:#2563eb;text-decoration:underline;">codestrom@gmail.com</a></li>
+                    <li style="margin-bottom:12px;"><i class="fas fa-phone" style="color:#2563eb;margin-right:8px;"></i> Phone: <a href="tel:+919876543210" style="color:#2563eb;text-decoration:underline;">+91 7411040945</a></li>
+                    <li><i class="fas fa-map-marker-alt" style="color:#2563eb;margin-right:8px;"></i> Tunga Mahavidyalaya, Thirthahalli, Karnataka</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>CodeStrom Hackathon</h4>
+                    <p>Bringing together the brightest minds in technology <br>to create solutions for tomorrow's challenges.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#registration">Register</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeStrom Hackathon. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    // Animate college logo and name section on load
+    window.addEventListener('DOMContentLoaded', function() {
+        const collegeHeader = document.querySelector('.college-header');
+        if (collegeHeader) {
+            setTimeout(() => {
+                collegeHeader.style.opacity = 1;
+                collegeHeader.style.transform = 'scale(1)';
+            }, 300);
+        }
+    });
+    </script>
+    <!-- Timer Countdown Script -->
+    <script>
+        (function() {
+            // Countdown for 40 days from now
+            const now = new Date();
+            const eventDate = new Date(now.getTime() + 40 * 24 * 60 * 60 * 1000);
+            function animateValue(id) {
+                const el = document.getElementById(id);
+                el.style.transform = 'scale(1.25)';
+                el.style.color = '#60a5fa';
+                setTimeout(() => {
+                    el.style.transform = 'scale(1)';
+                    el.style.color = '#2563eb';
+                }, 250);
+            }
+            function updateTimer() {
+                const current = new Date().getTime();
+                const distance = eventDate.getTime() - current;
+                if (distance < 0) {
+                    document.getElementById('countdown').innerHTML = '<span>Event Started!</span>';
+                    return;
+                }
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                if (document.getElementById('days').textContent !== String(days).padStart(2, '0')) animateValue('days');
+                if (document.getElementById('hours').textContent !== String(hours).padStart(2, '0')) animateValue('hours');
+                if (document.getElementById('minutes').textContent !== String(minutes).padStart(2, '0')) animateValue('minutes');
+                if (document.getElementById('seconds').textContent !== String(seconds).padStart(2, '0')) animateValue('seconds');
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            }
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        })();
+    </script>
+    <script>
+    // Animate hero section on load
+    window.addEventListener('DOMContentLoaded', function() {
+        const hero = document.querySelector('.hero-container');
+        if (hero) {
+            hero.style.opacity = 0;
+            hero.style.transform = 'translateY(40px) scale(0.98)';
+            setTimeout(() => {
+                hero.style.transition = 'opacity 1s cubic-bezier(.68,-0.55,.27,1.55), transform 1s cubic-bezier(.68,-0.55,.27,1.55)';
+                hero.style.opacity = 1;
+                hero.style.transform = 'translateY(0) scale(1)';
+            }, 200);
+        }
+        // Animate about cards
+        const aboutCards = document.querySelectorAll('.about-card');
+        aboutCards.forEach((card, i) => {
+            card.style.opacity = 0;
+            card.style.transform = 'scale(0.92) translateY(20px)';
+            setTimeout(() => {
+                card.style.transition = 'opacity 0.8s cubic-bezier(.68,-0.55,.27,1.55), transform 0.8s cubic-bezier(.68,-0.55,.27,1.55)';
+                card.style.opacity = 1;
+                card.style.transform = 'scale(1) translateY(0)';
+            }, 600 + i * 180);
+        });
+        // Animate timer blocks
+        const timerBlocks = document.querySelectorAll('.countdown-block');
+        timerBlocks.forEach((block, i) => {
+            block.style.opacity = 0;
+            block.style.transform = 'scale(0.85) translateY(10px)';
+            setTimeout(() => {
+                block.style.transition = 'opacity 0.7s cubic-bezier(.68,-0.55,.27,1.55), transform 0.7s cubic-bezier(.68,-0.55,.27,1.55)';
+                block.style.opacity = 1;
+                block.style.transform = 'scale(1) translateY(0)';
+            }, 400 + i * 140);
+        });
+    });
+    </script>
+</body>
+</html>

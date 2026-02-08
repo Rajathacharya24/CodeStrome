@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeStrom Hackathon 2024 - Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .registration-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(120deg, #2563eb 0%, #60a5fa 100%);
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .registration-container {
+            background: #f9fafb;
+            border-radius: 32px;
+            box-shadow: 0 12px 40px rgba(37,99,235,0.12);
+            padding: 56px 40px 36px 40px;
+            max-width: 650px;
+            width: 100%;
+            margin: 40px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: popIn 0.7s;
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.95); opacity: 0; }
+            80% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .form-icon {
+            text-align: center;
+            font-size: 3.5rem;
+            color: #2563eb;
+            margin-bottom: 18px;
+            animation: bounce 1.2s infinite alternate;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+        .section-title {
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #2563eb;
+            margin-bottom: 18px;
+            text-align: center;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(37,99,235,0.08);
+        }
+        .registration-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 6px;
+            font-size: 1.12rem;
+            letter-spacing: 0.5px;
+        }
+        input, select, textarea {
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            font-size: 1.08rem;
+            font-weight: 500;
+            color: #1e293b;
+            background: #f3f4f6;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1.5px solid #cbd5e1;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.05);
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #2563eb;
+            outline: none;
+            box-shadow: 0 4px 16px rgba(37,99,235,0.10);
+            background: #fff;
+            color: #2563eb;
+        }
+        .btn-primary {
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 16px;
+            cursor: pointer;
+            box-shadow: 0 6px 24px rgba(37,99,235,0.15);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 12px 40px rgba(37,99,235,0.22);
+            background: linear-gradient(90deg, #60a5fa 0%, #2563eb 100%);
+        }
+        @media (max-width: 600px) {
+            .registration-container {
+                padding: 18px 6px 16px 6px;
+                border-radius: 18px;
+                max-width: 98vw;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .form-icon {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-wrapper">
+        <div class="registration-container">
+            <div class="form-icon">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <h2 class="section-title">Register Now</h2>
+            <form class="registration-form" id="registrationForm">
+                <div class="form-group">
+                    <label for="teamName">Team Name *</label>
+                    <input type="text" id="teamName" name="teamName" required>
+                </div>
+                <div class="form-group">
+                    <label for="teamLeader">Team Leader Name *</label>
+                    <input type="text" id="teamLeader" name="teamLeader" required>
+                </div>
+                <div class="form-group">
+                    <label for="teamMembers">Team Members Names (3 members) *</label>
+                    <input type="text" id="teamMembers" name="teamMembers" required>
+                </div>
+                <div class="form-group">
+                    <label for="leaderEmail">Team Leader Email *</label>
+                    <input type="email" id="leaderEmail" name="leaderEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="leaderPhone">Team Leader Phone Number *</label>
+                    <input type="tel" id="leaderPhone" name="leaderPhone" required>
+                </div>
+                <button type="submit" class="btn-primary">Register Now</button>
+            </form>
+            <div id="formMessage" style="display:none;margin-top:18px;font-size:1.1rem;color:#2563eb;font-weight:600;text-align:center;"></div>
+        </div>
+    </div>
+    <script>
+document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('formMessage').textContent = 'Thank you for registering! Your response has been recorded.';
+    document.getElementById('formMessage').style.display = 'block';
+    this.reset();
+});
+</script>
+</body>
+</html>
