@@ -1,4 +1,4 @@
-# CodeStrom Hackathon 2024 - Registration Website
+# CodeStrome Hackathon 2024 - Registration Website
 
 A modern, responsive hackathon registration website built with HTML, CSS, and JavaScript. Features a classic, professional design that works seamlessly across all devices.
 
@@ -46,7 +46,7 @@ A modern, responsive hackathon registration website built with HTML, CSS, and Ja
 ## 🏗️ Project Structure
 
 ```
-CodeStrom/
+CodeStrome/
 ├── index.html          # Main HTML file
 ├── styles.css          # CSS styles and responsive design
 ├── script.js           # JavaScript functionality
@@ -146,4 +146,4 @@ This project is open source and available under the MIT License.
 
 ---
 
-**Built with ❤️ for the CodeStrom Hackathon 2024**
+**Built with ❤️ for the CodeStrome Hackathon 2024**
